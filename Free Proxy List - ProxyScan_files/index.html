@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>tablet-hotels_banners_160x600_chairs-and-cocktails</title>
+
+		<!-- css -->
+		<style>
+			body {
+				margin: 0;
+			}
+		</style>
+
+		<!-- greensock -->
+	<script src="./gsap_3.5.1_min.js"></script>
+
+	<!-- dcm -->
+	<meta name="ad.size" content="width=160, height=600">
+	<script type="text/javascript">
+		var clickTag = 'https://www.tablethotels.com/';
+	</script>
+
+
+		<!-- banner -->
+		<script src="./banner.min.js"></script>
+
+		<script>bannerboy.execution = 'en';</script>
+
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+
+<body onload="bannerboy.main();">
+	<!-- inject:body -->
+	<!-- (Do not add stuff inside this block!) -->
+	<div id="banner-container"><div id="border" style="box-sizing: border-box; overflow: hidden; border: 1px solid rgb(204, 204, 204); height: 600px; width: 160px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="banner" style="box-sizing: border-box; cursor: pointer; top: -1px; left: -1px; background-color: rgb(255, 255, 255); height: 600px; width: 160px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="frame_1" style="height: 280px; width: 143px; top: 171px; left: 11px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="img_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/img_1.jpg&quot;); height: 62px; width: 93px; top: 218px; left: 50px; transform: translate3d(0px, 0px, 0px) scale(1.1, 1.1); position: absolute; opacity: 0;"></div><div id="txt_1" style="height: 223px; width: 133px; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_1_5" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_1_5.png&quot;); height: 57px; width: 130px; top: 166px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_4" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_1_4.png&quot;); height: 34px; width: 67px; top: 132px; left: 16px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_3" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_1_3.png&quot;); height: 35px; width: 47px; top: 94px; left: 66px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_2" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_1_2.png&quot;); height: 44px; width: 123px; top: 48px; left: 10px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_1_1.png&quot;); height: 42px; width: 92px; top: 0px; left: 24px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div></div></div><div id="frame_2" style="height: 562px; width: 126px; top: 8px; left: 11px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="martini_head" style="background-size: 100% 100%; background-repeat: no-repeat; height: 159px; width: 86px; top: 403px; left: 30px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="172" height="318" style="opacity: 1; height: 159px; width: 86px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0.4595; height: 159px; width: 86px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="martini_head" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 413 746"><path d="M101.6,131.3c14.3,3.1,22-9.5,22-9.5l14.7,3.4s-4.7,6.2-1.7,7.1,8-3.6,9.8-5.1,4.8-7.3,1-7.8a8.5,8.5,0,0,0-6.4,2.4l-16.2-2.3c5.3-8.8-2-18.1-2-18.1,2.9.1-2.5,10.1-6.3,16.2s-13.2,14.8-16.2,12.6.3-11,5-16.7,12-15.7,17-12.6" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 5px; stroke-dashoffset: -3.9246; stroke-dasharray: 190.681px, 204.606px;"></path><path d="M129.7,78c2.4,4.8,12.6,10.5,16.2,10.5s4.2,4.1,4.2,4.1l7.4,18.7s-7,5-5.3,6.8,7.9.6,11,0,10.4-3.5,8.9-6.7-7.9-1.5-7.9-1.5l-9.5-21C165,83.7,164.1,68,164.1,68c-.1,3-9.7,5.4-14.9,6.6s-19.3,4.2-20.3,1.6,6.2-8.3,13.6-10.3,19.8-3.7,21.3,1.3" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 5px; stroke-dashoffset: -4.3211; stroke-dasharray: 209.944px, 224.265px;"></path><path d="M205.5,72.5c-7.7,7.1-3.2,18.8-1.4,21.8s.8,3.9.8,3.9L190,115.3c-10.1-3.9-15.3,1.1-15.8,6.6s7.2,12.4,13.2,12,10.9-1.6,11.3-8.5-4.9-8.5-4.9-8.5l14.3-18.3c19.7,3.5,24.4-6.1,24.4-6.1-5.9-.2-11.3-5.7-15.3-8.5s-11.9-10.9-10.7-12.8,13.6,4.3,18.6,8,13.5,10,9.5,13.3" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 5px; stroke-dashoffset: -4.8675; stroke-dasharray: 236.493px, 251.361px;"></path><path d="M233.7,108.1c-9.2,12.8-1.7,15.7-3,18.8s-9.5,7.9-10.8,7-8.4-5.3-9.4-4.6,2.5,6.4,6,10.1,8.7,6.7,10,6.5-1.8-4.5-3-6.2,5.8-7.7,5.8-7.7,5.6-6,11.1-2.4,14.5-.5,17.3-5.1-4.2-9.9-8.6-12.3-10.9-8-13.5-5.6,3.7,6.7,7.2,9.8,12.7,9.6,15.9,6.5" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 5px; stroke-dashoffset: -3.669; stroke-dasharray: 178.264px, 191.933px;"></path><path d="M187.5,240c-.6,12,25.6,14.3,25.6,14.3,2.5,21.4-3.8,41.6-8.2,43.7s-14.9,5.6-5.8,8.1,18.6,3.8,31.9,0,3.5-6,3.5-6c-26.6-10.5-16.4-47.4-16.4-47.4,3.2-1,10.3-8,12.5-11s4.1-9.9-.6-6.1-45.7,9.9-41.4,3,42.4-7.3,42.9-4.1" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 5px; stroke-dashoffset: -6.2595; stroke-dasharray: 304.124px, 320.384px;"></path></svg></div></div><div id="silly_straw_silly_chair" style="background-size: 100% 100%; background-repeat: no-repeat; height: 133px; width: 94px; top: 276px; left: 15px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="188" height="266" style="opacity: 1; height: 133px; width: 94px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0.2657; height: 133px; width: 94px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="silly_straw_silly_chair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1648"><path style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 12px; stroke-dashoffset: -160.531; stroke-dasharray: 7799.59px, 7970.12px;" d="M772.5,371.2S620.2,227.7,510.7,145.9c0,0,65.5-13.9,196.4,0,0,0,18.9-16.4,65.4-37.8s73,0,73,0l32.7,26.4s39.1,27.7,17.7,74.3-31.5,44-31.5,86.8c0,0,107.9,52.4,137.2,89.1s54.9,100.6,71.4,208.6,12.8,102.2,0,230.7-42.2,192.7-74.3,252.7-121.4,120.7-240,134-243.5-92.8-243.5-92.8-79.9-80-112.9-131.4c0,0,7.3,14.7-121.3-14.7,0,0,99.2,299.5,84.5,363.8,0,0,36.8,33,53.3,86.3,0,0,66.1,5.4-5.5,115.7,0,0-34.9,49.7-57,35s12.9-102.9,12.9-102.9-12.9-23.9-11-53.3L236.9,1113.2,222.2,1229s60.7,69.8-18.3,99.2c0,0-7.4,112.1-134.2,110.2,0,0-12.2-4.2,11.8-16.8s53.9-56.8,72.6-167.8,31.7-291,31.7-291-36-77.9,10.1-80.7l28.8-134s1.5-50.5,57.7-36.1,183,86.5,183,86.5-40.4-82.1,27.3-93.7c0,0,18.8,13,18.8-21.6S476.9,468.5,438,444s-106.7-44.7-125.4-1.4,66.3,44.6,66.3,44.6l41.8,34.6L312.6,511.7s102.3-72.7,8.7-226.2-95.1-54-95.1-54,25.9,38.9,74.9,2.9,1.4-113.9-26-102.3-27.3,80.6,57.7,97.9,76.4-119.6,33.1-119.6-36,118.2,34.6,125.4,70.6-87.9,33.2-102.3-31.7,82.1,8.6,129.7,116.7-10.1,82.1-46.1-85,33.1-57.6,98,99.4,33.1,132.6,4.3"></path></svg></div></div><div id="red_dress_green_chair" style="background-size: 100% 100%; background-repeat: no-repeat; height: 142px; width: 107px; top: 135px; left: 9px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="214" height="284" style="opacity: 1; height: 142px; width: 107px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0.007; height: 142px; width: 107px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="red_dress_green_chair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1323 1747"><path style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 12px; stroke-dashoffset: 0; stroke-dasharray: none;" d="M938.5,741.4s7.3,13.7,19.6,17.1,90.5,68.3,110.5,82.8,47.8,30.3,55.1,36.7,7.2,21.3,7.2,50.3,3.4,38.8,2.6,90.9-38,201.4-63.1,211.2-43.6,14.9-78.1,5.1-94.3-49.1-101.1-56.7-22.8,74.8-30.3,94.4-12.8,35.9-12.8,73.2-.7,110.4,19.6,134.1c0,0,4.2-7.9,8.8,3.7s19.5,33.5,31.6,39,7.2,13.8-6.6,13.8-13.6,5.8-62.8-22.7-34.9-31-34.6-37.4-8.6-63-14.1-74.2c0,0-3.5-5.8-3.8,7.3s-8.6,19.2-8.6-4.1,2.2-18.9,4.4-30.1-.6-18.3,5.2-27.2,19.2-44.3,20.9-65.1,1.7-73.7,3.5-91.9c0,0-15.5,51.6-29.8,104.4s-19.9,149.7-19.9,149.7,0,83.2-10.5,131-37.3,95.7-46,95.7-9.9-34.8-10.6-51.6-5.5-22.3-6.2-45.3,10-60.9,16.2-79.5,3.7-37.3,11.8-82.6,17.4-65.2,19.2-137.9S755.1,1052,755.1,1052s4.4-154.8,41.3-178.7c0,0-116.6-6.4-144.8-22S568,690,568,690s-40.8,164.2-19.4,213.8S602,967,627.3,974.7s127.6,55.6,127.6,55.6l-.7,16.1s-59.3,36.8-110.7,46.1l1.5,148.3s-21.5,99.1-53.8,100.6-269.7-184.4-278.9-199,3.1-32.3,7.7-31.5,14.6,1.5,24.6,16.9,71.4,71.5,112.9,91.4,76.9,35.4,128.3,75.3c0,0,35.4-19.9,19.3-175.9s-248.2-219-248.2-219l10.9,47.2-26.9,12.8s-34-58-22.6-86.3S348,861.9,348,861.9s-19.8-85-29.7-126S307.1,667,309,655.2s5.9-25.6,30.5-36.8,111.9-41.7,159.6-54.9c0,0-14.8-90.7,61-119.5s53.6-47,53.6-47l25.5-6.6s22.3-48.6-21.4-35.4c0,0-9.1,20.6-47,8.3s-30.5-49.5-30.5-49.5-52.8-9.2-36.8-89.2c0,0,4.2-43.8,38.4-34.2,0,0,0-100.3,106.7-89.6,0,0,86.4-70.4,123.7,23.5,0,0,45.9,12.8,43.8,89.6,0,0,33,50.1-9.6,95s-28,16.9-53.6,61.5c0,0-.6,7.2-18.5,20,0,0,26.1.5,28.7,37.5,0,0,77.4-17.5,95.4,49.2s10.3,61.5,10.3,61.5,15.3,31.8,23.5,55.9,15.4,60,15.4,60l7.7-10.7s-2-13.9,4.1-13.4a13.5,13.5,0,0,1,9.3,4.6l9.2,2.1s23.1-50.3,21-92.8c0,0-6.1,2.5-41.5-2.1,0,0-5.2-5.1,18.4-22.5V499.1s7.1-31.9-27.1-61.7-37.9-27-37.9-46.6,23.3-32.8,22.6-47.4-26.9-25.5-26.2-40,65.5-17.5,102-16.1,45.8,6.6,45.8,6.6,0-25.5,37.2-25.5,38.6,24.8,33.5,53.9-32.1,37.9-32.1,37.9l-4.3-18.2s-24.8,9.4-19.7,46.6-12.9,62.5-55.3,71.4c0,0,16.7-5.9,22.5,3.6s7.3,38.6-3.6,58.3-29.1,126.7-29.1,126.7l4.2,9.5Z"></path></svg></div></div><div id="silly_straw_eames" style="background-size: 100% 100%; background-repeat: no-repeat; height: 141px; width: 126px; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="252" height="282" style="opacity: 1; height: 141px; width: 126px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0; height: 141px; width: 126px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="silly_straw_eames" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 604 667"><path d="M333.5,267c-19.3,1.5-16.3-2.6-16.3-2.6l.5-3.1c12.6-.7,18.9,2.8,18.8,6.5s-5.1,19.8-12.5,22.1-4.7,4.2-4.7,4.2l7.9,1.9c3,.7,5.4,4.8,5.4,4.8,4.8,4.9,0,5.2,0,5.2.2,2.1-6.2,4.4-6.2,4.4-1.2,1.8-8.5,3.9-8.5,3.9.7,3.7,9.4,6.6,13,12.4s-45.2.7-31.3-3.6S314,312.9,314,312.9c-4.5.6-18.8-2.5-18.8-2.5L292.7,300c.8,0,7.6-6.9,7.6-6.9h15.8c0-7.6-3.8-6.1-9.8-12.2s-3.4-17.7-3.4-17.7c-.2-1.9,10.2-1.9,10.2-1.9s.6,2-11.1-65.2,3.1-84.1,6.8-89,20.6-2.8,23.3.6,4.3,10.7-2.1,16.7-13.8-.7-16-4.1-.9-14.1,9.5-16.6,27.1.6,32.9,9.5-2.8,19.1-8.4,20.3-11.9-8-12.1-12.3,6.1-12,12.8-10.4,16,15,8.9,26.7-21.7,7.7-21.7,7.7" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 5px; stroke-dashoffset: 0; stroke-dasharray: none;"></path></svg></div></div></div><div id="frame_3" style="height: 517px; width: 150px; top: 29px; left: 5px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="lounge_town_with_hat" style="background-size: 100% 100%; background-repeat: no-repeat; height: 87px; width: 145px; top: 430px; left: 5px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="290" height="174" style="opacity: 0; height: 87px; width: 145px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0.5; height: 87px; width: 145px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="lounge_town_with_hat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2198 1323"><path style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 15px; stroke-dashoffset: -9598.79; stroke-dasharray: 0px, 9608.79px;" d="M1272.8,1222.9s39.6-229.4,11.1-373.2-38.4-183.6-238.1-178.6-130.8-.2-594.4-9.6c0,0-96.4-24-81.8,110.4s35.9,443,35.9,443l139.3-7.5L995,836.8s38,4.6,67.9-24.2c0,0,26.5,6.9,42.6-19.6,0,0,42.7,2.3,57.6-31.1,0,0,56.3-5.5,58.8-33.4l28.8-49.5s41.4-61,65.6-70.2c0,0,6.9-18.5,15-20.8s28.8-23,47.2,0c0,0,35.7-11.5,47.2,13.9,0,0,21.9,2.3,36.9-13.9,0,0,38,36.9,59.9,46.1,0,0,38,64.5,78.3,82.9,0,0,26.5,48.4,141.6,74.9,0,0,17.3,1.1,34.6,18.4s31.1,20.7,42.6,18.4,69.1,36.9,72.6,61.1,29.9,55.3,57.5,43.7,36.9-13.8,53-20.7,19.6-33.4,36.9-57.6c0,0,35.7-18.4,47.2-31.1s11.5-19.1,7.7-25-19.3-1.6-19.3-1.6,5.9-7.6-1.1-14-14.6,0-14.6,0,11.9-22.1,3.8-28.1-19.9,1.1-22.6,10.8-2.7,22.1-11.9,27.5-15.1,1.6-24.8,9.1-5.3,23.2-31.2,26.4-43.6,18.4-106.7-25.8c0,0,9.7-6.5,23.2-19.9s15.1-20,22.6-29.1,27-22.1,40.4-35,8.6-13,8.6-13,30.8-8.6,29.7-18.8-8.1-2.7-8.1-2.7,4.3-7.6-.5-10.3-11.9-4.3-27,7.6c0,0-1.6-14.6-11.3-14.6s-11.8-7.4-21-6.1-12.9,2.4-22.1,5.6-9.1,19.9-16.1,31.2-13.5,8.7-21.1,18.4-10.7,25.3-19.3,31.7-22.7,16.2-22.7,16.2-53.8-52.8-85.6-77-57.1-41.5-80.3-60.4-24.2-24.7-31.8-30.7-45.8-31.2-65.2-45.2c0,0-3.2-14-15.6-28s-38.8-36.1-38.8-36.1-12.9-23.2-41.4-9.2-52.8,18.9-61.5,21-99.6,41.5-99.6,41.5-16.2-25.3-21-25.9-42.6,18.9-42.6,18.9-44.7,12.4-53.3,19.9-3.2,16.2-22.1,25.4-75.9,40.9-75.9,40.9l-30,16.5s-202.6-20.8-256.4-19.3-306.4,0-306.4,0-9.2-10.3-48.3-9.8-172.8-13.6-227.8-47.7c0,0-126.7-13.9-129.5-48.7,0,0-8.4-1.9,62.9-66.7,0,0-2.9,2.9-38.1,13.7L246.2,307.2s13.7-14.4-25.9-61.9c0,0,37.5-47.5,38.9-79.2,0,0,8.6,8,36-5a66.1,66.1,0,0,1,39.6,7.2s17.3-9.4,42.5,2.9c0,0,87.8-78.5,160.5-85,0,0-38.1,68.4-83.5,121L468,224.4s13.7,4.4,29.5-9.3,2.2,10.8,27.4,27.3c0,0,3.6,26,20.8,28.8s46.8-19.4,78.5-68.4,30.2-62.6,77-83.5,92.2-5,105.1,41.1-5.7,59.7-33.1,64S737.9,156.8,797,112.9s87.8-38.2,125.2-17.3,31,118,31,118,2.6-40.9-4-48.9-65.5-7.3-66,1.4,104.1,15.6,112.6,9.3,1.7,13.6-14.3,33.5c0,0,19.5,19.5-6.7,46.1,0,0,17.7,22.6,1.6,44.3s-25,77.5-25,77.5-37.1,14.1-74.6-14.2c0,0,16.9-15.7,18.1-37.5s-16.9-35.8-17.7-55.6,16.9-21.4,16.9-31.9-10.1-8-10.1-20.5,11.7-13.3,11.3-23.8c0,0-2,13.9-17.9,11.4s-21.8-22.6-21.8-44.8,20.9-33,33.9-33.5,25,2.5,30.8,36"></path></svg></div></div><div id="long_hair_groovy_chair" style="background-size: 100% 100%; background-repeat: no-repeat; height: 147px; width: 125px; top: 267px; left: 12px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="250" height="294" style="opacity: 0; height: 147px; width: 125px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0.5; height: 147px; width: 125px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="long_hair_groovy_chair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508 600"><path d="M340.4,357.1s-72,3.6-104.7-1.7-38-15.8-38-15.8l-46.4-45.1s.2,17.5,0,29.9-16.7,49.5-21.3,59.3S98.1,432.9,92.2,439s-24.6,18.3-13.9,34.7,27.1,10.2,42.6,11.4,35.2,6.1,35.7,15.2-17.7,22.1-27.4,28.2-2.5-5.6-2.5-5.6,13.4-13.4,13.4-15-26.3.3-37.2,3.1-44.9,8.1-60.6,8.1-21.5-16-25.8-28.1,20.2-52,38.2-63.1,11.2-12.7,21.6-20.1,26.3-44.1,26.3-44.1a327.7,327.7,0,0,1,15.1-41.5c9.6-21.3,10-56.3,10-56.3-26.6-41.3,8.4-67.2,8.4-67.2-.8-13.2,0-15.9,0-22.3s6.6-41.3,8.1-76,16.2-43.6,26.6-46.1,11.7,3.8,11.7,3.8c9.6,0,38,29.4,38,29.4-3.3,8.6-2.3,14.4-1.5,26.1s-14.2,43.3-14.2,43.3l7.3,5.8L200,176.9s19.5,21.8,24,26.6,7,3.8,11.6,4.6,8.8-7.1,10.6,3.8,21.3,23.1,28.9,24.8,21.8-38.2,21.8-38.2l-.3-10.7s14.2,12.2,14.4,7.4-5.4-17.3-9.7-22.7-10.5-27.3,3-7.6,19.4,9.7,20.9,9.7,17.5-17,17.5-17l.2-6.8-9.4-.4c-4.4-14.2,6.3-20.6,9.2-20.6s15.1-3.9,15.1,11.8-10.4,16.1-10.4,16.1l-2.5-3.3v-5.8c-34.3-3.9-45.3,2.5-45.3,2.5l19.9,19.3,3.1-2.5-18.4-28.6s-2.4,3.2-1.4,5.5,3.3,3.1,5.8,1.3,3.7-2.3,1.4-5.4-5.1-1.8-5.1-1.8l-7.3-11.3-1.5,1.7c-5.5,8.9,4.7,6.6,5.8,6.6s3.7-2.5,2.8-5.5-6.4-2.2-6.4-2.2l-.9-1.3-4.7-6.7" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 4px; stroke-dashoffset: -1935.75; stroke-dasharray: 0px, 1945.75px;"></path></svg></div></div><div id="long_chair_big_umbrella" style="background-size: 100% 100%; background-repeat: no-repeat; height: 112px; width: 148px; top: 147px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="296" height="224" style="opacity: 0; height: 112px; width: 148px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0.5; height: 112px; width: 148px; transform: translate3d(0px, 0px, 0px) scale(-1, 1); position: absolute;"><svg id="long_chair_big_umbrella" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 917 696"><path d="M694.4,359.5,576.5,212.9C514.8,238.3,359.8,348,359.8,348c27-77.6,21.8-131.6,24.6-144.8s23.2-5,23.2-5,2.2,6.1-11.5,13,4.8,5.6,20.6,4.7,21.2-4.9,18-6.4-12.6-11.1-12.6-11.1c9.9-.9,19.7-10.2,19.7-10.2-24.2,1.8-6.5-13.4-4.1-18.4s-2.2-5.2-2.2-5.2a58.1,58.1,0,0,0,.8-12.7c-.4-5.3-5.3,2.3-5.3,2.3s.8-12.7-2.4-5.6S415,167,415,167s-.5,3.2-.3-11.2S431,143.7,436.3,137s4.4-19.2,4.4-19.2c-31.2-13.7-60.8,0-61.5,2.8s42.7,1.7,42.7,1.7c13.6-33.1,13.4-48.7,13.4-48.7S368,66.7,365.2,61.1s77.5-47.6,83.1-47.4,24.3,28.8,30.7,36,31.5,25.4,28.2,27.7-8.4,2.3-15.9,0-52.8-3.8-52.8-3.8" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 6px; stroke-dashoffset: -1370.72; stroke-dasharray: 0px, 1380.72px;"></path></svg></div></div><div id="corbusier_pineapple" style="background-size: 100% 100%; background-repeat: no-repeat; height: 129px; width: 99px; top: 0px; left: 26px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="198" height="258" style="opacity: 0; height: 129px; width: 99px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0.5; height: 129px; width: 99px; transform: translate3d(0px, 0px, 0px); position: absolute;"></div></div></div><div id="frame_4" style="height: 174px; width: 142px; top: 212px; left: 12px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_4" style="height: 224px; width: 146px; top: -39px; left: -7px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_4_7" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_7.png&quot;); height: 21px; width: 114px; top: 203px; left: 11px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_4_6" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_6.png&quot;); height: 20px; width: 130px; top: 175px; left: 10px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_4_5" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_5.png&quot;); height: 20px; width: 92px; top: 146px; left: 11px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_4_4" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_4.png&quot;); height: 26px; width: 131px; top: 117px; left: 6px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_4_3" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_3.png&quot;); height: 20px; width: 136px; top: 88px; left: 10px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_4_2" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_2.png&quot;); height: 20px; width: 83px; top: 59px; left: 10px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_4_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_1.png&quot;); height: 20px; width: 102px; top: 30px; left: 10px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_4_0" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_4_0.png&quot;); height: 27px; width: 111px; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div></div></div><div id="frame_5" style="height: 294px; width: 140px; top: 135px; left: 12px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="img_5_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/img_5_1.jpg&quot;); height: 86px; width: 73px; top: 208px; left: 1px; transform: translate3d(0px, 0px, 0px) rotate(2deg) scale(0.85, 0.85); position: absolute; opacity: 0;"></div><div id="img_5_2" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/img_5_2.jpg&quot;); height: 100px; width: 72px; top: 0px; left: 66px; transform: translate3d(0px, 0px, 0px) rotate(-2deg) scale(0.85, 0.85); position: absolute; opacity: 0;"></div><div id="txt_5" style="height: 53px; width: 140px; top: 126px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_5_2" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_5_2.png&quot;); height: 37px; width: 128px; top: 21px; left: -2px; transform: translate3d(0px, 0px, 0px) scale(0.8, 0.8); position: absolute; opacity: 0;"></div><div id="txt_5_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/txt_5_1.png&quot;); height: 29px; width: 150px; top: -6px; left: -5px; transform: translate3d(0px, 0px, 0px) scale(0.8, 0.8); position: absolute; opacity: 0;"></div></div></div><div id="logo" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/sadbundle/4080344267756414743/th_chairs-and-cocktails_160x600_en/logo.png&quot;); height: 11px; width: 85px; top: 579px; left: 66px; transform: translate3d(0px, 0px, 0px); position: absolute;"></div></div></div></div>
+	<!-- endinject -->
+
+
+</body></html>
